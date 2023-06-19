@@ -1,0 +1,69 @@
+<div matDialogTitle class="p-4"*ngIf="data.employee">Detalle Personal</div>
+<div mat-dialog-content>
+    <form [formGroup]="employeeForm" class=" flex flex-col gap-4">
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Rut</mat-label>
+                <input name="rut" formControlName="rut" placeholder="Rut" [(ngModel)]="employee.rut" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2 ">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input name="nombre" formControlName="nombre" placeholder="Nombre" [(ngModel)]="employee.nombre" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input name="apellido" formControlName="apellido" placeholder="Apellido" [(ngModel)]="employee.apellido" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input name="telefono" formControlName="telefono" placeholder="Telefono" [(ngModel)]="employee.telefono" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Fecha Nacimiento</mat-label>
+                <input name="fechaNacimiento" formControlName="fechaNacimiento" placeholder="Fecha Nacimiento" [(ngModel)]="employee.fechaNacimiento" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Comuna</mat-label>
+                <input name="comuna" formControlName="comuna" placeholder="Comuna" [(ngModel)]="employee.direccion.comuna" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Calle</mat-label>
+                <input name="calle" formControlName="calle" placeholder="Calle" [(ngModel)]="employee.direccion.calle" matInput>
+            </mat-form-field>
+        </div>
+
+        <div class=" flex flex-row w-full justify-start  gap-2">
+            <mat-form-field class=" w-full" appearance="outline">
+                <mat-label>Número</mat-label>
+                <input name="numero" formControlName="numero" placeholder="numero" [(ngModel)]="employee.direccion.numero" matInput>
+            </mat-form-field>
+        </div>
+
+    </form>
+</div>
+
+
+<mat-dialog-actions class=" -mx-6 px-6 bg-primary text-on-primary flex flex-row w-full justify-start  gap-2 justify-between content-center">
+    <button mat-icon-button matDialogClose>
+        <mat-icon class=" text-on-primary">close</mat-icon>
+    </button>
+</mat-dialog-actions>

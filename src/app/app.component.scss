@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+}
+
+
+//ngx-datatable
+
+::ng-deep {
+    datatable-body-row {
+        .datatable-body-row{
+            @apply bg-gray-100;
+        }
+    }
+}

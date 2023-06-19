@@ -1,0 +1,45 @@
+<div class="flex flex-col flex-auto min-w-0 m-6">
+    <div class="flex flex-col  center p-4 bg-card rounded-2xl shadow">
+        
+        <div class="flex flex-col gap-4  center p-4   rounded-2xl shadow" [ngClass]="{'bg-card':!collapsed, 'bg-primary':collapsed}">
+            <div *ngIf="!collapsed" class=" flex flex-row justify-between content-center">
+                <div class=" font-medium text-lg pr-2 self-center">Trabajadores</div>
+
+                <div class="flex flex-row gap-3">
+                    <button mat-icon-button aria-label="search" (click)="collapse()" matTooltip="Buscar">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div *ngIf="collapsed" class="p-2 ">
+                <div class="flex flex-row justify-between content-center w-full text-white">
+                    <input autofocus id="fuse-search-bar-input"
+                        class="font-bold w-full bg-primary-500 rounded-2xl px-2 placeholder-gray-100" type="text"
+                        [(ngModel)]="search" placeholder="Buscar por nombre" (keyup)='filterDatatable($event.target.value)'>
+                    <button mat-icon-button class="fuse-search-bar-collapser icon-button"
+                        (click)="collapse(); closeFilter()" aria-label="Buscar">
+                        <mat-icon class=" text-white">close</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br>
+        
+        <ngx-datatable #table class="material h-s-60" [rows]="employees" [columnMode]="'force'" [headerHeight]="48"
+                        [footerHeight]="56" [rowHeight]="50" [scrollbarV]="false" [selectionType]="'checkbox'" [limit]="10"
+                        (activate)="onActivate($event)">
+            <ngx-datatable-column prop="rut" name="Rut"></ngx-datatable-column>
+            <ngx-datatable-column prop="nombre" name="Nombre"></ngx-datatable-column>
+            <ngx-datatable-column prop="apellido" name="Apellido"></ngx-datatable-column>
+            <ngx-datatable-column prop="fechaNacimiento" name="Fecha Nacimiento"></ngx-datatable-column>
+            <ngx-datatable-column prop="observacion" name="Observación">
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-allRowsSelected="allRowsSelected" let-selectFn="selectFn">
+                    <p style="color: red;" *ngIf="row.observacion != ''">{{row.observacion}}</p>
+                    <p *ngIf="row.observacion == ''">{{row.observacion}}</p>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+
+    </div>
+
+</div>
